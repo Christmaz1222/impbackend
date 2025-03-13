@@ -8,15 +8,13 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
 
   app.use(morgan('dev'));
-  console.log(configService.get('PORT')); 
-
   const port = configService.get('PORT') || 6000;
-  //await app.listen(port);
-  console.log(`Application running on: http://localhost:${port}/api`);
+  //console.log(`Application running on: http://localhost:${port}/api`);
+  app.enableCors();
   app.setGlobalPrefix('api');
 
   const server = await app.listen(port);
-  //console.log(app.getHttpAdapter().getInstance()._router.stack.map(layer => layer.route && layer.route.path));
+  
 
   
 }
