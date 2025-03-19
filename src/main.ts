@@ -15,6 +15,7 @@ async function bootstrap() {
 
   const server = await app.listen(port);
   
+  console.log(`Application is running on: ${await app.getUrl()}`);
 
   
 }
